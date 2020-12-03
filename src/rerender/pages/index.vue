@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    <div>vvv</div>
+    <div>333</div>
     <img src="@/deps/assets/test.png" alt="">
     <router-link :to="{path: '/home'}" tag="button">to home</router-link>
   </div>

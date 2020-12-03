@@ -58,7 +58,6 @@ function styleLoader(options) {
       use: loader
     })
   }
-  console.log(output)
   return output
 }
 

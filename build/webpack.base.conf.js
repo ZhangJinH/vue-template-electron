@@ -2,6 +2,7 @@
 const path = require('path')
 const config = require('../config/index')
 
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const VueLoaderConfig = require('./vue-loader.conf')
 
 function resolve(dir) {
@@ -51,6 +52,13 @@ module.exports = {
           options: VueLoaderConfig
         }]
       },
+      {
+        test: /\.js?x$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'babel-loader'
+        }]
+      },
       // 图片loader
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -58,7 +66,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              name: 'img/[name].[ext]',
+              name: 'img/[name].[hash:8].[ext]',
               publicPath: './',
               limit: 10000,
               esModule: false
@@ -99,5 +107,6 @@ module.exports = {
     ]    
   },
   plugins: [
+    new VueLoaderPlugin(),
   ]
 }
